@@ -1,0 +1,34 @@
+name: Deploy Frontend to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo mkdir -p /var/www/devops-project-frontend
+
+            if [ -d "/var/www/devops-project-frontend/.git" ]; then
+              cd /var/www/devops-project-frontend
+              sudo git pull origin main
+            else
+              sudo git clone https://github.com/muhib99/devops-project-frontend.git /var/www/devops-project-frontend
+            fi
+
+            sudo chown -R www-data:www-data /var/www/devops-project-frontend
+            sudo chmod -R 755 /var/www/devops-project-frontend
+            sudo systemctl restart nginx

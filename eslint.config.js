@@ -9,6 +9,7 @@ module.exports = [
       sourceType: "script",
       globals: {
         ...globals.browser,
+        marked: "readonly",
       }
     },
     rules: {

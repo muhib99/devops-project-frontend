@@ -1,0 +1,15 @@
+# Node modules (if ever installed locally)
+node_modules/
+
+# Environment files
+.env
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ESLint cache
+.eslintcache     

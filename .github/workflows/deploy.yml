@@ -48,7 +48,8 @@ jobs:
 
             if [ -d "/var/www/devops-project-frontend/.git" ]; then
               cd /var/www/devops-project-frontend
-              sudo git pull origin main
+              sudo git fetch origin
+              sudo git reset --hard origin/main
             else
               sudo git clone https://github.com/muhib99/devops-project-frontend.git /var/www/devops-project-frontend
             fi

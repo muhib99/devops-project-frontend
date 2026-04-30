@@ -28,7 +28,24 @@
       </select>
     </div>
   </div>
-
+<!-- Progress Stepper -->
+  <div class="stepper" id="stepper">
+    <div class="stepper-step" id="step-1">
+      <div class="stepper-dot"><span class="stepper-icon">01</span></div>
+      <div class="stepper-label">Prompt Submitted</div>
+    </div>
+    <div class="stepper-line" id="line-1"></div>
+    <div class="stepper-step" id="step-2">
+      <div class="stepper-dot"><span class="stepper-icon">02</span></div>
+      <div class="stepper-label">AI Processing</div>
+    </div>
+    <div class="stepper-line" id="line-2"></div>
+    <div class="stepper-step" id="step-3">
+      <div class="stepper-dot"><span class="stepper-icon">03</span></div>
+      <div class="stepper-label">Response Ready</div>
+    </div>
+  </div>
+  
   <!-- Submit -->
   <div>
     <button class="btn" id="submitBtn" disabled onclick="submitPrompt()">

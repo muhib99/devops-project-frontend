@@ -297,3 +297,93 @@ footer {
   border-top: 1px solid var(--border);
   margin: 1rem 0;
 }
+
+
+/* ── Progress Stepper ──────────────────────────────────── */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  flex-shrink: 0;
+}
+
+.stepper-dot {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  transition: all .4s ease;
+}
+
+.stepper-icon {
+  font-family: var(--font-head);
+  font-size: .7rem; font-weight: 700;
+  color: var(--muted);
+  transition: color .4s ease;
+}
+
+.stepper-label {
+  font-size: .65rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+  transition: color .4s ease;
+  white-space: nowrap;
+}
+
+.stepper-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 .75rem;
+  margin-bottom: 1.6rem;
+  border-radius: 99px;
+  transition: background .4s ease;
+  min-width: 40px;
+}
+
+/* Active step */
+.stepper-step.active .stepper-dot {
+  border-color: var(--accent);
+  background: rgba(232, 255, 71, .08);
+  animation: stepPulse 1.2s ease-in-out infinite;
+}
+.stepper-step.active .stepper-icon { color: var(--accent); }
+.stepper-step.active .stepper-label { color: var(--accent); }
+
+/* Completed step */
+.stepper-step.complete .stepper-dot {
+  border-color: var(--success);
+  background: rgba(57, 217, 138, .08);
+  animation: none;
+}
+.stepper-step.complete .stepper-icon { color: var(--success); }
+.stepper-step.complete .stepper-label { color: var(--success); }
+
+/* Completed line */
+.stepper-line.complete { background: var(--success); }
+
+/* Error step */
+.stepper-step.error .stepper-dot {
+  border-color: var(--err);
+  background: rgba(255, 92, 114, .08);
+  animation: none;
+}
+.stepper-step.error .stepper-icon { color: var(--err); }
+.stepper-step.error .stepper-label { color: var(--err); }
+
+@keyframes stepPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(232,255,71,.2); }
+  50%       { box-shadow: 0 0 20px rgba(232,255,71,.5); }
+}

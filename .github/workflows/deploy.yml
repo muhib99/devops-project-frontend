@@ -20,11 +20,11 @@ jobs:
 
       - name: Install analysis tools
         run: |
+          npm install -g eslint
           npm install -g htmlhint
-          npm install eslint @eslint/js
-          
+
       - name: Run JavaScript code analysis (ESLint)
-        run: npx eslint script.js
+        run: eslint script.js
 
       - name: Run HTML validation (HTMLHint)
         run: htmlhint index.html

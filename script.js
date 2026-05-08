@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const API = 'http://ec2-13-229-75-225.ap-southeast-1.compute.amazonaws.com';
+const API = 'http://ec2-15-134-218-182.ap-southeast-2.compute.amazonaws.com';
 
 // ── Stepper helpers ───────────────────────────────────────
 function setStep(step) {
